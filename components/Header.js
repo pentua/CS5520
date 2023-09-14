@@ -11,7 +11,7 @@ const Header = (props) => {
 
 // use {}for disctuting props: {appName} will just get appName form props, rather than get props first then get appName
 const HeaderDistructing = ({appName, another}) => {
-    console.log(appName);
+    console.log(another);
     return (
       <View>
         <Text>Welcome to {another}</Text>
