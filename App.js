@@ -18,6 +18,7 @@ export default function App() {
       {/* <Text>Open up App.js to start working on {name}!</Text> */}
       {/* use header component */}
       {/*V== self close*/}
+      
       <Header />
       <HeaderDistructing appName="testApp" another="test"/>
       <StatusBar style="auto" />
