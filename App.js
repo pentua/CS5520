@@ -1,17 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
-import Header from './components/Header';
-import HeaderDistructing from './components/Header';
+import { StyleSheet, Text, View } from 'react-native';
+import { Header, HeaderDistructing } from './components/Header';
 import { useState } from 'react';
+import Input from './components/Input';
 
 export default function App() {
   const name="My Aswesome App 001"
   // Distructing from useState
   //use normal var CANT trigger rerender
-  const [txt, setTxt] = useState("Type sth") 
-  function changeTextHandler(input) {
-    console.log(input);
-    setTxt(input)
+  const [appTxt, appSetTxt] = useState("Type sth")
+  function callbackSetTxt(newTxt) {
+    appSetTxt(newTxt)
   }
   return (
     <View style={styles.container}>
@@ -19,11 +18,11 @@ export default function App() {
       {/* use header component */}
       {/*V== self close*/}
       
-      <Header />
+      <Header appName="testApp"/>
       <HeaderDistructing appName="testApp" another="test"/>
       <StatusBar style="auto" />
-      <TextInput style={styles.textInput} onChangeText={changeTextHandler} value={txt}/>
-      <Text>{txt}</Text>
+      <Input callbackF={callbackSetTxt} txtValue={appTxt}/>
+      <Text>{appTxt}</Text>
     </View>
   );
 }
@@ -37,6 +36,11 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderColor: "blue",
-    // backgroundColor: 'blue',
+    backgroundColor: 'yellow',
   }
 });
+
+
+// <------- callback function------ (passed to child by props )
+//App                         Child component
+// ------- props ------> (could be var or function)

@@ -11,7 +11,7 @@ const Header = (props) => {
 
 // use {}for disctuting props: {appName} will just get appName form props, rather than get props first then get appName
 const HeaderDistructing = ({appName, another}) => {
-    console.log(another);
+    console.log(appName);
     return (
       <View>
         <Text>Welcome to {another}</Text>
@@ -20,4 +20,4 @@ const HeaderDistructing = ({appName, another}) => {
   }
 
 
-export default Header
+export {Header, HeaderDistructing}
